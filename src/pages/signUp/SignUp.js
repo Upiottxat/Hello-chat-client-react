@@ -191,7 +191,7 @@ const SignUp = () => {
                                     <input
                                         className="form-check-input"
                                         onChange={() => {
-                                            handleGender("Male");
+                                            handleGender("male");
                                         }}
                                         type="radio"
                                         name="gender"
@@ -205,7 +205,7 @@ const SignUp = () => {
                                     <input
                                         className="form-check-input"
                                         onChange={() => {
-                                            handleGender("Female");
+                                            handleGender("female");
                                         }}
                                         type="radio"
                                         name="gender"

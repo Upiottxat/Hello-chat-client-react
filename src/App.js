@@ -4,8 +4,11 @@ import Login from './pages/login/login'
 import SignUp from './pages/signUp/SignUp'
 import Home from './pages/Home/home';
 import { useAuthContext } from './context/authContext';
+import toast from 'react-hot-toast';
 function App() {
   const { authUser } = useAuthContext();
+
+
   return (
     <Routes>
       <Route path="/" element={authUser ? <Home /> : <Login />} />
