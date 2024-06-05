@@ -12,8 +12,8 @@ const Users = ({ userDetails }) => {
 
             style={{
                 width: "100%",
-                height: '100%'
-
+                height: '100%',
+                paddingRight: '1rem'
 
             }} onClick={() => {
                 selectedUser ? userDetails._id === selectedUser._id ? setSelectedUser("") : setSelectedUser(userDetails) : setSelectedUser(userDetails)

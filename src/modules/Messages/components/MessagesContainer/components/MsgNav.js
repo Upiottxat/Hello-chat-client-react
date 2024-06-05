@@ -3,9 +3,11 @@ import Avatar from '../../Avatar'
 
 import { useState } from 'react'
 import { useSelectedUserContext } from '../../../../../context/selectedUserContext'
+import { useAuthContext } from '../../../../../context/authContext'
 const MsgNav = () => {
 
-    const { selectedUser } = useSelectedUserContext()
+    const { selectedUser, setSelectedUser } = useSelectedUserContext()
+    const { authUser } = useAuthContext()
     useEffect(() => {
         console.log(selectedUser);
     })
@@ -20,13 +22,29 @@ const MsgNav = () => {
                 <div style={{
                     marginLeft: '1rem'
                 }}>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <div className='' style={{
+                            paddingLeft: '0.1rem',
+                            marginRight: '0.5rem',
+                            display: window.innerWidth > 630 ? "none" : "flex"
+                        }}
 
-                    <Avatar height={"3rem"} width={"3rem"} profilePic={selectedUser ? selectedUser.profilePic : ''}></Avatar></div>
+                            onClick={() => {
+                                {
+                                    setSelectedUser(null)
+                                }
+                            }}
+                        >
+                            <i className='fa fa-arrow-left' ></i>
+                        </div>
+
+                        <Avatar height={"3rem"} width={"3rem"} profilePic={selectedUser ? selectedUser.profilePic : authUser ? authUser.profilePic : ""}></Avatar></div>
+                </div>
                 <div className="container-fluid">
 
                     <a className="navbar-brand" href="#">
                         {
-                            selectedUser ? selectedUser.hasOwnProperty("_id") ? selectedUser.fullName : "GuestUser" : "GuestUser"
+                            selectedUser ? selectedUser.hasOwnProperty("_id") ? selectedUser.fullName : authUser ? authUser.fullName : "GuestUser" : authUser ? authUser.fullName : "GuestUser"
                         }
 
                     </a>
