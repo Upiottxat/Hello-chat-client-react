@@ -104,7 +104,7 @@ const ChatsContainer = () => {
                                     }}>
                                         <span className='border p-2 m-1' style={{
                                             borderRadius: '20px',
-                                            background: val.senderId === userLoggedIn._id ? "purple" : "#ffffff",
+                                            background: val.senderId === userLoggedIn._id ? "royalblue" : "#ffffff",
                                             color: val.senderId === userLoggedIn._id ? "#fff" : "#000",
                                             maxWidth: '60%',
                                             flexWrap: 'wrap',
@@ -203,7 +203,7 @@ const ChatsContainer = () => {
 
 
             </div>
-            <div
+            {selectedUser ? <div
                 className="form p-2"
                 style={{
                     width: "100%",
@@ -235,12 +235,20 @@ const ChatsContainer = () => {
                         }}
                     >
                         <i
-                            className="fa fa-paper-plane text-secondary "
+                            className="fa fa-paper-plane text-primary send-btn-hover "
                             onClick={handleSendmsg}
                         ></i>
                     </div>
                 </div>
-            </div></React.Fragment>
+            </div> : <div></div>}
+
+
+
+
+
+
+
+        </React.Fragment>
     )
 }
 

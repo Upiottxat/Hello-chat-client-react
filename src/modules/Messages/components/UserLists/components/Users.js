@@ -6,7 +6,6 @@ import { useSelectedUserContext } from '../../../../../context/selectedUserConte
 const Users = ({ userDetails }) => {
     const { selectedUser, setSelectedUser } = useSelectedUserContext()
 
-
     return (
         <div className={'row  d-flex    justify-content-start p-1  align-items-center bg-light rounded'}
 

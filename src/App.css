@@ -41,3 +41,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.send-btn-hover{
+transition: all 0.3s;
+}
+.send-btn-hover:hover{
+  
+  color:blue
+}
