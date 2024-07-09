@@ -84,6 +84,7 @@ body{
   margin-right: 3.5rem;
   /* transform: translateX(-100%) ;
    */
+   margin-left:1rem;
    
   font-size: larger;
 }

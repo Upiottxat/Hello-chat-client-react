@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react'
 const useGetUsersList = () => {
     const [loading, setLoading] = useState(false)
     const [List, setList] = useState([])
-
-
+    const [searchList, setSearchList] = useState([])
+    const [searchLoading, setSearchLoading] = useState(false);
     const GetList = async () => {
         setLoading(true)
         try {
@@ -18,6 +18,7 @@ const useGetUsersList = () => {
                 return
             }
             setList(body)
+            return body
         } catch (error) {
 
             console.log(error.message);
@@ -34,6 +35,27 @@ const useGetUsersList = () => {
 
 
 
+    const searchByUsername = async (username) => {
+        if (!username) return
+        setSearchLoading(true);
+        try {
+            const res = await fetch("/api/users/searchByUsername", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username })
+            })
+            const body = await res.json()
+            console.log(body);
+            setSearchList(body)
+            // setList(body)
+        } catch (error) {
+            console.log("Error", error);
+        } finally {
+            setSearchLoading(false)
+        }
+    }
 
 
 
@@ -41,7 +63,9 @@ const useGetUsersList = () => {
 
 
 
-    return [loading, List,]
+
+
+    return [loading, List, searchList, searchByUsername]
 }
 
 export default useGetUsersList

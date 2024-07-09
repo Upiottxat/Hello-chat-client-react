@@ -4,20 +4,18 @@ import Users from './components/Users'
 import useGetUsersList from '../../../../hooks/useGetUsersList'
 import { useSelectedUserContext } from '../../../../context/selectedUserContext'
 import "./components/style.css"
+import Lists from './Lists'
+import SearchedUser from './components/searchedUser'
+
 const UserLists = () => {
 
-    const [loading, List] = useGetUsersList();
+    const [loading, List, searchList] = useGetUsersList();
     const { selectedUser } = useSelectedUserContext()
-
-
-    useEffect(() => {
-        console.log(List);
-    }, [])
 
 
     return (
         <div className='  row  justify-content-center  align-items-start flex-column' style={{
-            maxWidth: '400px', minHeight: '100%',
+            maxWidth: '400px', height: '100%',
             overflow: 'auto',
             paddingLeft: '1rem',
             marginLeft: '0.2rem',
@@ -26,35 +24,9 @@ const UserLists = () => {
 
         }}>
 
-            <NavSection ></NavSection>
-            {
-                List ? List.map((val, index) => {
-                    return (
+            <NavSection  ></NavSection>
+            <Lists></Lists>
 
-                        <React.Fragment key={index} >
-                            <Users userDetails={val} ></Users>
-                        </React.Fragment>
-
-
-                    )
-                }) :
-                    <div className='   position-relative  ' style={{
-                        flex: 1, width: '100%', height: '100%'
-
-
-                    }}>
-                        <div className="spinner-border text-center  text-secondary " role="status" style={{
-                            width: "1.5rem", height: "1.5rem",
-
-                            position: "absolute",
-                            top: "50%",
-                            left: '50%'
-                        }}>
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-
-            }
         </div>
     )
 }
