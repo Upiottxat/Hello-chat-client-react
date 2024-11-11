@@ -1,7 +1,8 @@
 # Real-Time Chatting Web Application Frontend
 
 This is the frontend for a real-time chatting web application built using React.js, WebSockets, and Lottie animations, with full authentication functionality.
-
+## Live view 
+- https://chathello.netlify.app/
 ## Table of Contents
 
 - [Features](#features)
